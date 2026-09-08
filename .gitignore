@@ -14,7 +14,7 @@ export_credentials.cfg
 *.provisionprofile
 
 # Local captures / recordings (curated stills live in docs/screenshots)
-screenshots/
+/screenshots/
 
 # Agent runner leftovers
 *.stream.jsonl
