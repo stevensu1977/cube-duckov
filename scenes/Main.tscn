@@ -1,0 +1,58 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/Game.cs" id="1_vcsgt"]
+[ext_resource type="Script" path="res://scripts/Arena.cs" id="2_c01mt"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="3_nxtc6"]
+[ext_resource type="Script" path="res://scripts/CameraRig.cs" id="4_jlsqs"]
+[ext_resource type="Script" path="res://scripts/Hud.cs" id="5_q8u5g"]
+
+[sub_resource type="Environment" id="Environment_lhr70"]
+background_mode = 1
+background_color = Color(0.62, 0.74, 0.82, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.66, 0.74, 0.86, 1)
+ambient_light_energy = 0.6
+tonemap_mode = 2
+tonemap_exposure = 1.05
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.74, 0.82, 0.88, 1)
+fog_density = 1.0
+fog_sky_affect = 0.0
+fog_depth_curve = 1.2
+fog_depth_begin = 24.0
+fog_depth_end = 75.0
+adjustment_enabled = true
+adjustment_contrast = 1.04
+adjustment_saturation = 1.1
+
+[node name="Main" type="Node3D" unique_id=606178920]
+script = ExtResource("1_vcsgt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1510762011]
+environment = SubResource("Environment_lhr70")
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=409387635]
+transform = Transform3D(0.7880108, -0.48514786, 0.37903908, 0, 0.6156615, 0.7880107, -0.6156615, -0.62096095, 0.4851479, 0, 0, 0)
+light_color = Color(1, 0.94, 0.82, 1)
+light_energy = 1.25
+shadow_enabled = true
+directional_shadow_mode = 0
+directional_shadow_max_distance = 70.0
+
+[node name="Arena" type="NavigationRegion3D" parent="." unique_id=1542801786]
+script = ExtResource("2_c01mt")
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1792902927]
+script = ExtResource("3_nxtc6")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=1103303424]
+script = ExtResource("4_jlsqs")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig" unique_id=1357714907]
+transform = Transform3D(1, 0, 0, 0, 0.41750017, 0.90867686, 0, -0.90867686, 0.41750017, 0, 19, 8.5)
+current = true
+fov = 42.0
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1573590121]
+script = ExtResource("5_q8u5g")

@@ -1,0 +1,24 @@
+# Godot / .NET
+.godot/
+*.import
+bin/
+obj/
+.mono/
+mono_crash.*.json
+
+# Exports and signing (attach builds to GitHub Releases instead)
+build/
+export_credentials.cfg
+*.p12
+*.p8
+*.provisionprofile
+
+# Local captures / recordings (curated stills live in docs/screenshots)
+screenshots/
+
+# Agent runner leftovers
+*.stream.jsonl
+*.err.log
+run.log
+.claude/
+tools/__pycache__/
